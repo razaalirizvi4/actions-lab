@@ -1,0 +1,23 @@
+name: Hello Actions
+on:
+  workflow_dispatch:
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+      - name: Say hello
+        run: echo "Hello from GitHub Actions!"
+      - name: Show context
+        run: |
+          echo "Actor: ${{ github.actor }}"
+          echo "Event: ${{ github.event_name }}"
+          echo "Repository: ${{ github.repository }}"
+          echo "Ref: ${{ github.ref }}"
+          echo "Commit: ${{ github.sha }}"
+          echo "Runner OS: ${{ runner.os }}"
+      - name: List files
+        run: ls -la
+      - name: Checkout the repository
+        uses: actions/checkout@v3
